@@ -13,6 +13,9 @@ import com.intellij.psi.impl.source.tree.LeafElement
 import org.apache.commons.lang.StringEscapeUtils
 import org.jetbrains.plugins.scala.lang.psi.api.ScalaElementVisitor
 import org.jetbrains.plugins.scala.lang.psi.api.base.ScLiteral
+import org.jetbrains.plugins.scala.lang.psi.api.base.{ScInterpolatedStringLiteral, ScLiteral}
+import org.jetbrains.plugins.scala.lang.psi.controlFlow.impl.expr.ScLiteralCfgBuildingImpl
+import org.jetbrains.plugins.scala.lang.psi.impl.expr.ScExpressionImplBase
 import org.jetbrains.plugins.scala.lang.psi.types._
 import org.jetbrains.plugins.scala.macroAnnotations.CachedInUserData
 
