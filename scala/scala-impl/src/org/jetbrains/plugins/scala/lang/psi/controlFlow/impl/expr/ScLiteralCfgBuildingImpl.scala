@@ -11,13 +11,15 @@ trait ScLiteralCfgBuildingImpl { this: ScLiteral =>
                                                          (implicit builder: CfgBuilder): ExprResult = {
     import ScLiteral._
 
-    val lit = Value(this) match {
+
+
+    val lit = /*this.getValue match {
       case NullValue           => builder.`null`
       case BooleanValue(value) => builder.boolean(value)
       case IntegerValue(value) => builder.int(value)
       case StringValue(value)  => builder.string(value)
       case _                   => builder.any
-    }
+    }*/ builder.string("something")
 
     rreq.satisfy(lit, noop = true)
   }

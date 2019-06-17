@@ -26,7 +26,7 @@ import org.jetbrains.plugins.scala.macroAnnotations.CachedInUserData
 class ScLiteralImpl(node: ASTNode,
                     override val toString: String) extends expr.ScExpressionImplBase(node)
   with ScLiteral
-  with ContributedReferenceHost {
+  with ContributedReferenceHost with ScLiteralCfgBuildingImpl {
 
   import ScLiteralImpl._
   import lang.lexer.ScalaTokenTypes._
