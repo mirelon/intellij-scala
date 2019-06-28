@@ -58,7 +58,8 @@ abstract class ScalaHighlightsTestBase extends ScalaLightCodeInsightFixtureTestA
     val (normalizedText, offset) = findCaretOffset(fileText, stripTrailingSpaces = true)
 
     val fixture = getFixture
-    fixture.configureByText("dummy.scala", normalizedText)
+    val file = fixture.configureByText("dummy.scala", normalizedText)
+    getEditor.getCaretModel.moveToOffset(offset)
 
     import JavaConverters._
     fixture.doHighlighting().asScala
