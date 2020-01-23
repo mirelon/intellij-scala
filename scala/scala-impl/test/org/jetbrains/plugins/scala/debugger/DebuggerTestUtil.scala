@@ -1,7 +1,6 @@
 package org.jetbrains.plugins.scala.debugger
 
-import com.intellij.openapi.application.ApplicationManager
-import com.intellij.openapi.application.ex.ApplicationEx
+import com.intellij.openapi.application.ex.ApplicationManagerEx
 import com.intellij.openapi.projectRoots.JavaSdkVersion
 import com.intellij.openapi.util.registry.Registry
 import org.jetbrains.plugins.scala.base.libraryLoaders.SmartJDKLoader
@@ -18,12 +17,9 @@ object DebuggerTestUtil {
     compileServerSettings.COMPILE_SERVER_ENABLED = enable
     compileServerSettings.COMPILE_SERVER_SHUTDOWN_IDLE = true
     compileServerSettings.COMPILE_SERVER_SHUTDOWN_DELAY = 30
-    val application = ApplicationManager.getApplication
-    application match {
-      case applicationEx: ApplicationEx => applicationEx.setSaveAllowed(true)
-      case _ =>
-    }
-    application.saveSettings()
+    val applicationEx = ApplicationManagerEx.getApplicationEx
+    applicationEx.setSaveAllowed(true)
+    applicationEx.saveSettings()
   }
 
   def forceJdk8ForBuildProcess(): Unit = {
